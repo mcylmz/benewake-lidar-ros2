@@ -2,6 +2,7 @@ from launch import LaunchDescription
 from launch.actions import DeclareLaunchArgument
 from launch.substitutions import LaunchConfiguration
 from launch_ros.actions import Node
+from launch_ros.parameter_descriptions import ParameterValue
 
 
 def generate_launch_description():
@@ -33,11 +34,11 @@ def generate_launch_description():
             'sensor_ip': LaunchConfiguration('sensor_ip'),
             'port': LaunchConfiguration('port'),
             'angle_offset': LaunchConfiguration('angle_offset'),
-            'scan_freq': LaunchConfiguration('scan_freq'),
-            'filter': LaunchConfiguration('filter'),
-            'laser_enable': LaunchConfiguration('laser_enable'),
-            'scan_range_start': LaunchConfiguration('scan_range_start'),
-            'scan_range_stop': LaunchConfiguration('scan_range_stop'),
+            'scan_freq': ParameterValue(LaunchConfiguration('scan_freq'), value_type=str),
+            'filter': ParameterValue(LaunchConfiguration('filter'), value_type=str),
+            'laser_enable': ParameterValue(LaunchConfiguration('laser_enable'), value_type=str),
+            'scan_range_start': ParameterValue(LaunchConfiguration('scan_range_start'), value_type=str),
+            'scan_range_stop': ParameterValue(LaunchConfiguration('scan_range_stop'), value_type=str),
             'configure_sensor': LaunchConfiguration('configure_sensor'),
         }],
         output='screen',
