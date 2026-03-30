@@ -64,26 +64,26 @@ source install/setup.bash
 
 ```bash
 # Basic
-ros2 launch benewake-lidar-ros2 lidar1_scan.launch.py
+ros2 launch benewake-lidar-ros2 scan.launch.py
 
 # With RViz
-ros2 launch benewake-lidar-ros2 lidar1_scan_view.launch.py
+ros2 launch benewake-lidar-ros2 scan_view.launch.py
 
 # Custom parameters
-ros2 launch benewake-lidar-ros2 lidar1_scan.launch.py port:=2368 output_topic:=scan sensor_ip:=192.168.198.2
+ros2 launch benewake-lidar-ros2 scan.launch.py port:=2368 output_topic:=scan sensor_ip:=192.168.198.2
 ```
 
 ### Dual LIDAR
 
 ```bash
 # Two sensors on different UDP ports
-ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar.launch.py
+ros2 launch benewake-lidar-ros2 dual_scan.launch.py
 
 # With RViz
-ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar_view.launch.py
+ros2 launch benewake-lidar-ros2 dual_scan_view.launch.py
 
 # Custom ports and topics
-ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar.launch.py port_0:=2368 port_1:=2369 output_topic_0:=scan0 output_topic_1:=scan1
+ros2 launch benewake-lidar-ros2 dual_scan.launch.py port_0:=2368 port_1:=2369 output_topic_0:=scan0 output_topic_1:=scan1
 ```
 
 ### Run Node Directly
