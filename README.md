@@ -1,4 +1,4 @@
-# benewake_lidar
+# benewake-lidar-ros2
 
 ROS2 driver for Benewake LIDAR sensors that communicate over the MSOP (Multi-block Socket Protocol) via UDP.
 
@@ -47,14 +47,14 @@ sudo apt install libboost-system-dev nlohmann-json3-dev
 ```bash
 # Clone into your workspace
 cd ~/ros2_ws/src
-git clone <repository-url> benewake_lidar
+git clone <repository-url> benewake-lidar-ros2
 
 # Install dependencies
 cd ~/ros2_ws
 rosdep install --from-paths src --ignore-src -r -y
 
 # Build
-colcon build --packages-select benewake_lidar
+colcon build --packages-select benewake-lidar-ros2
 source install/setup.bash
 ```
 
@@ -64,32 +64,32 @@ source install/setup.bash
 
 ```bash
 # Basic
-ros2 launch benewake_lidar lidar1_scan.launch.py
+ros2 launch benewake-lidar-ros2 lidar1_scan.launch.py
 
 # With RViz
-ros2 launch benewake_lidar lidar1_scan_view.launch.py
+ros2 launch benewake-lidar-ros2 lidar1_scan_view.launch.py
 
 # Custom parameters
-ros2 launch benewake_lidar lidar1_scan.launch.py port:=2368 output_topic:=scan sensor_ip:=192.168.198.2
+ros2 launch benewake-lidar-ros2 lidar1_scan.launch.py port:=2368 output_topic:=scan sensor_ip:=192.168.198.2
 ```
 
 ### Dual LIDAR
 
 ```bash
 # Two sensors on different UDP ports
-ros2 launch benewake_lidar lidar1_scan_dual_lidar.launch.py
+ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar.launch.py
 
 # With RViz
-ros2 launch benewake_lidar lidar1_scan_dual_lidar_view.launch.py
+ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar_view.launch.py
 
 # Custom ports and topics
-ros2 launch benewake_lidar lidar1_scan_dual_lidar.launch.py port_0:=2368 port_1:=2369 output_topic_0:=scan0 output_topic_1:=scan1
+ros2 launch benewake-lidar-ros2 lidar1_scan_dual_lidar.launch.py port_0:=2368 port_1:=2369 output_topic_0:=scan0 output_topic_1:=scan1
 ```
 
 ### Run Node Directly
 
 ```bash
-ros2 run benewake_lidar benewake_lidar_scan_node --ros-args \
+ros2 run benewake-lidar-ros2 benewake_lidar_scan_node --ros-args \
   -p host_ip:=0.0.0.0 \
   -p port:=2368 \
   -p output_topic:=scan \
